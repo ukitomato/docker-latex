@@ -63,7 +63,7 @@ $pvc_view_file_via_temporary = 0;
 ```
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](https://github.com/ukitomato/docker-latex/blob/master/LICENSE)
 
 ## Author
 Yuki Yamato [[ukitomato](https://github.com/ukitomato)]
