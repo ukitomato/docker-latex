@@ -67,6 +67,7 @@ $pvc_view_file_via_temporary = 0;
 1. make docker-compose.yml
 docker-compose.yml
 ```
+$ cd workspace
 $ vi docker-compose.yml
 version: '3'
 services:
@@ -80,7 +81,6 @@ services:
 ```
 2. start latexmk
 ```
-$ cd workspace
 $ docker-compose up
 ```
 
