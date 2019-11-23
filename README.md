@@ -27,6 +27,7 @@ $ docker run -v .:/working --name latex -w /working ukitomato/latex:latex
 root@0000000000:/working # uplatex latex.tex
 root@0000000000:/working # dvipdfmx latex
 ```
+
 ## Example LaTeX file
 latex.tex
 ```
@@ -61,6 +62,29 @@ $pdf_mode                      = 3;
 
 $pvc_view_file_via_temporary = 0;
 ```
+
+## Example Docker Compose file
+1. make docker-compose.yml
+docker-compose.yml
+```
+$ vi docker-compose.yml
+version: '3'
+services:
+  latexmk:
+    image: ukitomato/latex:latest
+    volumes:
+      - .:/working
+    working_dir: /working
+    command: latexmk -pvc latex.tex
+\end{document}
+```
+2. start latexmk
+```
+$ cd workspace
+$ docker-compose up
+```
+
+
 ## Licence
 
 [MIT](https://github.com/ukitomato/docker-latex/blob/master/LICENSE)
