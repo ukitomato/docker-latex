@@ -18,12 +18,12 @@ $ docker pull ukitomato/latex
 1. if you want to compile 'latex.tex' automatically
 ```
 $ cd your-workspace
-$ docker run -v .:/working --name latex -w /working ukitomato/latex:latex latexmk -pvc latex.tex
+$ docker run -v $PWD:/working --name latex -w /working ukitomato/latex:latest latexmk -pvc latex.tex
 ```
 2. if you want to compile 'latex.tex' manually
 ```
 $ cd your-workspace
-$ docker run -v .:/working --name latex -w /working ukitomato/latex:latex
+$ docker run -v $PWD:/working --name latex -w /working ukitomato/latex:latest
 root@0000000000:/working # uplatex latex.tex
 root@0000000000:/working # dvipdfmx latex
 ```
@@ -72,6 +72,7 @@ $ vi docker-compose.yml
 version: '3'
 services:
   latexmk:
+    container_name: latexmk
     image: ukitomato/latex:latest
     volumes:
       - .:/working
