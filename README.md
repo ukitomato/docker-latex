@@ -78,7 +78,6 @@ services:
       - .:/working
     working_dir: /working
     command: latexmk -pvc latex.tex
-\end{document}
 ```
 2. start latexmk
 ```
