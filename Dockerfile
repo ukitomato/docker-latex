@@ -8,6 +8,7 @@ RUN apt update && \
         language-pack-ja-base \
         language-pack-ja \
         texlive-lang-cjk \
+        texlive-fonts-recommended \
         latexmk \
         fonts-noto-cjk \
         fonts-noto-cjk-extra &&\
