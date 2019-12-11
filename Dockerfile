@@ -20,3 +20,4 @@ RUN apt update && \
 COPY . /root/
 
 CMD ["/bin/bash"]
+
