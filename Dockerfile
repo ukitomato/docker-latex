@@ -10,11 +10,6 @@ RUN apk add --no-cache curl perl fontconfig-dev freetype-dev && \
     /tmp/install-tl-unx/install-tl \
     --profile texlive.profile \
     --repository http://mirror.ctan.org/systems/texlive/tlnet/ && \
-    curl -O https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip && \
-    mkdir -p /usr/share/fonts/NotoSansCJKjp && \
-    unzip NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp/ && \
-    fc-cache -fv && \
-    rm NotoSansCJKjp-hinted.zip && \
     rm -fr /tmp/install-tl-unx && \
     apk del .fetch-deps
 
