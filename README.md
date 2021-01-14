@@ -89,6 +89,7 @@ $ docker-compose up
 
 | Version | Description |
 | --- | --- |
+| alpine-ja-1.0.0 | change base image |
 | 1.2.0 | add SI units support |
 | 1.1.0 | fix missing fonts error |
 | 1.0.2 | fix docker commands |
