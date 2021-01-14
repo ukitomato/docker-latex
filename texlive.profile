@@ -1,4 +1,4 @@
-# texlive.profile written on Fri Dec 11 01:31:19 2020 UTC
+# texlive.profile written on Thu Jan 14 19:02:49 2021 UTC
 # It will NOT be updated and reflects only the
 # installation profile at installation time.
 selected_scheme scheme-custom
@@ -12,16 +12,19 @@ TEXMFVAR ~/.texlive2020/texmf-var
 binary_x86_64-linuxmusl 1
 collection-basic 1
 collection-bibtexextra 1
+collection-fontsextra 1
 collection-fontsrecommended 1
 collection-fontutils 1
 collection-formatsextra 1
 collection-langenglish 1
 collection-langjapanese 1
 collection-latex 1
+collection-latexextra 1
 collection-latexrecommended 1
 collection-mathscience 1
 collection-pictures 1
-collection-texworks 1
+collection-plaingeneric 1
+collection-publishers 1
 instopt_adjustpath 0
 instopt_adjustrepo 1
 instopt_letter 0
