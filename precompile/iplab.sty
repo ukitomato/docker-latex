@@ -1,0 +1,51 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{iplab}[2020/3/03 v1.0]
+\RequirePackage{color}
+\RequirePackage{todonotes}
+\setlength{\marginparwidth}{1.5cm}
+
+\newif\ifDRAFT
+\DRAFTfalse
+\newif\ifJAPANESE
+\JAPANESEfalse
+\newif\ifENGLISH
+\ENGLISHfalse
+\newif\ifANNOT
+\ANNOTfalse
+
+\DeclareOption{draft}{
+	\DRAFTtrue
+}
+\DeclareOption{japanese}{
+	\JAPANESEtrue
+}
+\DeclareOption{english}{
+	\ENGLISHtrue
+}
+\DeclareOption{annot}{
+	\ANNOTtrue
+}
+\DeclareOption{publish}{
+	\ENGLISHfalse
+	\JAPANESEfalse
+	\DRAFTfalse
+}
+\ProcessOptions\relax
+
+\def\TODO#1{\ifDRAFT\todo[size=tiny,color=blue!40]{@TODO\par#1}\else \fi}
+\def\CHECK#1#2{\ifDRAFT\colorbox{yellow}{#1}\todo[size=tiny,color=yellow!40]{@CHECK\par#2}\else #1\fi}
+\def\FIXME#1#2{\ifDRAFT\textcolor{red}{#1}\todo[size=tiny,color=pink!60]{@FIXME\par#2}\else #1\fi}
+\def\FIXED#1#2{\ifDRAFT{#2}\todo[size=tiny,color=green!40]{@FIXED\par#1→#2}\else #2\fi}
+
+\newcommand{\J}[1]{
+	\ifDRAFT\ifJAPANESE\textcolor[gray]{0.5}{#1}\par\else\fi
+	\else 
+	\fi
+}
+
+\newcommand{\E}[1]{
+	\ifDRAFT\ifENGLISH\textcolor[gray]{0.5}{#1}\par\else\fi
+	\else 
+	\fi
+}
+\endinput
