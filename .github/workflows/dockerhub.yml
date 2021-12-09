@@ -59,7 +59,7 @@ jobs:
         uses:  docker/build-push-action@v2.7.0
         with:
           context: ./
-          file: ./Dockerfile
+          target: default
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -71,10 +71,21 @@ jobs:
         uses:  docker/build-push-action@v2.7.0
         with:
           context: ./
-          file: ./Dockerfile.vscode
+          target: vscode
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}-vscode
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-      
+
+      - name: Build and push for full-schema
+        id: docker_build_vscode
+        uses:  docker/build-push-action@v2.7.0
+        with:
+          context: ./
+          file: ./Dockerfile.full
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}-full
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
