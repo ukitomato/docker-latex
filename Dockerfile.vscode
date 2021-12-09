@@ -15,6 +15,11 @@ RUN mkdir /tmp/install-tl-unx && \
 # Install additional packages
 RUN tlmgr install xkeyval xstring microtype etoolbox booktabs caption fancyvrb libertine totpages environ textcase hyperxmp ifmtarg luacode xcolor ncctools float preprint inconsolata newtx fontspec latexmk comment siunitx upquote here cmap setspace acmart todonotes pxpgfmark multirow
 
+# Install necessary packages for VSCode
+RUN tlmgr install latexindent synctex texcount chktex
+## Install dependencies for latexindent
+RUN cpanm YAML::Tiny File::HomeDir Unicode::GCString
+
 WORKDIR /working
 
 # Run lualatex once for creating font database
@@ -23,6 +28,7 @@ RUN cd /working && latexmk --lualatex sample-lualatex.tex && rm -rf *
 
 
 FROM perl:5.34-slim as runner
+COPY --from=builder /usr/local/lib/perl5 /usr/local/lib/perl5
 COPY --from=builder /usr/local/texlive /usr/local/texlive
 
 ENV PATH /usr/local/texlive/2021/bin/x86_64-linux:$PATH
