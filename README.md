@@ -1,26 +1,37 @@
 Docker LaTeX for Japanase
 ====
 
-This is a docker image source for [upLaTeX](https://texwiki.texjp.org/?upTeX%2CupLaTeX), dvipdfmx, [latexmk](https://texwiki.texjp.org/?Latexmk) using [Noto Fonts](https://www.google.com/get/noto/).
+This is a docker image source for [upLaTeX](https://texwiki.texjp.org/?upTeX%2CupLaTeX)
+/ [LuaLaTeX](https://texwiki.texjp.org/?LuaTeX), dvipdfmx, [latexmk](https://texwiki.texjp.org/?Latexmk)
+using [HaranoAji Fonts](https://github.com/trueroad/HaranoAjiFonts).
 
 ## Description
-- Compiler: [upLaTeX](https://texwiki.texjp.org/?upTeX%2CupLaTeX), (pLaTex)
-- PDF converter: dvipdfmx
-- Automator: [latexmk](https://texwiki.texjp.org/?Latexmk)
-- Available Font: [Noto Fonts](https://www.google.com/get/noto/)
 
-## Install
+- Compiler: [upLaTeX](https://texwiki.texjp.org/?upTeX%2CupLaTeX) +
+  dvipdfmx, [LuaLaTeX](https://texwiki.texjp.org/?LuaTeX), (pLaTex)
+- Automator: [latexmk](https://texwiki.texjp.org/?Latexmk)
+- Available Font: [HaranoAji Fonts](https://github.com/trueroad/HaranoAjiFonts)
+
+## Supported tags
+- `3.2.0`: support only compile with upLaTeX/LuaLaTeX
+- `3.2.0-vscode`: use image with vscode (supporting for vscode-latex-workshop)
+- `3.2.0-full`: support full-package (with Japanese)
+
 ```
 $ docker pull ukitomato/latex
 ```
 
 ## Usage
+
 1. if you want to compile 'latex.tex' automatically
+
 ```
 $ cd your-workspace
 $ docker run -v $PWD:/working --name latex -w /working ukitomato/latex:latest latexmk -pvc latex.tex
 ```
+
 2. if you want to compile 'latex.tex' manually
+
 ```
 $ cd your-workspace
 $ docker run -v $PWD:/working --name latex -w /working ukitomato/latex:latest
@@ -29,7 +40,9 @@ root@0000000000:/working # dvipdfmx latex
 ```
 
 ## Example LaTeX file
+
 latex.tex
+
 ```
 \documentclass[uplatex,a4paper]{jsarticle}
 \usepackage[noto-otc]{pxchfon}
@@ -41,10 +54,10 @@ This is a sample file.
 \end{document}
 ```
 
-
 ## Default latexmkrc Setting
-This setting is used automatically.
-If you want to use your own settings, put the .latexmkrc file in the same folder as the .tex file.
+
+This setting is used automatically. If you want to use your own settings, put the .latexmkrc file in the same folder as
+the .tex file.
 
 ```
 #!/usr/bin/env perl
@@ -64,8 +77,9 @@ $pvc_view_file_via_temporary = 0;
 ```
 
 ## Example Docker Compose file
-1. make docker-compose.yml
-docker-compose.yml
+
+1. make docker-compose.yml docker-compose.yml
+
 ```
 $ cd workspace
 $ vi docker-compose.yml
@@ -79,25 +93,29 @@ services:
     working_dir: /working
     command: latexmk -pvc latex.tex
 ```
+
 2. start latexmk
+
 ```
 $ docker-compose up
 ```
 
-
 ## Version
 
-| Version | Description |
-| --- | --- |
-| alpine-ja-1.0.0 | change base image |
-| 1.2.0 | add SI units support |
-| 1.1.0 | fix missing fonts error |
-| 1.0.2 | fix docker commands |
-| 1.0.0 | create docker latex image |
+| Version         | Description               |
+|-----------------|---------------------------|
+| 2.0.0           | update Texlive 2021       |
+| acm-1.0.0       | support acm package       |
+| alpine-ja-1.0.0 | change base image         |
+| 1.2.0           | add SI units support      |
+| 1.1.0           | fix missing fonts error   |
+| 1.0.2           | fix docker commands       |
+| 1.0.0           | create docker latex image |
 
 ## Licence
 
 [MIT](https://github.com/ukitomato/docker-latex/blob/master/LICENSE)
 
 ## Author
+
 Yuki Yamato [[ukitomato](https://github.com/ukitomato)]
