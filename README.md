@@ -13,8 +13,8 @@ using [HaranoAji Fonts](https://github.com/trueroad/HaranoAjiFonts).
 - Available Font: [HaranoAji Fonts](https://github.com/trueroad/HaranoAjiFonts)
 
 ## Supported tags (using `alpine`)
-- `latest`, `4.2.1`, `x.x.x`: support only compile with upLaTeX/LuaLaTeX
-- `4.2.1-vscode`, `x.x.x-vscode`: use image with vscode (supporting for vscode-latex-workshop)
+- `latest`, `4.3.0`, `x.x.x`: support only compile with upLaTeX/LuaLaTeX
+- `4.3.0-vscode`, `x.x.x-vscode`: use image with vscode (supporting for vscode-latex-workshop)
 - `full`: support full-package (with Japanese)
 
 Optional tags:
