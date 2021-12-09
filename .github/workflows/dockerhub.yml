@@ -42,6 +42,7 @@ jobs:
       - name: Docker Metadata action
         # You may pin to the exact commit or the version.
         # uses: docker/metadata-action@e5622373a38e60fb6d795a4421e56882f2d7a681
+        id: meta
         uses: docker/metadata-action@v3.6.2
         with:
           # List of Docker images to use as base name for tags
