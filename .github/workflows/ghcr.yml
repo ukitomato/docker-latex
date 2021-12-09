@@ -96,7 +96,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
 
       - name: Build and push for full-schema
-        id: docker_build_vscode
+        id: docker_build_full
         uses:  docker/build-push-action@v2.7.0
         with:
           context: ./
