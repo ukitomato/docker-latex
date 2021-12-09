@@ -11,6 +11,7 @@ TEXMFSYSVAR /usr/local/texlive/2021/texmf-var
 TEXMFVAR $TEXMFSYSVAR
 binary_x86_64-linuxmusl 1
 collection-basic 1
+collection-fontsrecommended 1
 collection-langcjk 1
 collection-langenglish 1
 collection-langjapanese 1
