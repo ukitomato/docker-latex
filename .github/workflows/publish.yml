@@ -9,7 +9,7 @@ on:
   push:
     branches:
       - master
-      - bullsyeye-slim
+      - bullseye-slim
     # Publish semver tags as releases.
     tags: [ '*.*.*' ]
   pull_request:
