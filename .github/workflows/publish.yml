@@ -156,11 +156,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-      - name: Sign the published Docker image
-        if: ${{ github.event_name != 'pull_request' && !github.event.repository.private }}
-        env:
-          COSIGN_EXPERIMENTAL: "true"
-        run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.docker_build.outputs.digest }}
 
       - name: Build and push for VSCode
         id: docker_build_vscode
@@ -173,11 +168,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-      - name: Sign the published Docker image
-        if: ${{ github.event_name != 'pull_request' && !github.event.repository.private }}
-        env:
-          COSIGN_EXPERIMENTAL: "true"
-        run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.docker_build_vscode.outputs.digest }}
 
       - name: Build and push for full-schema
         id: docker_build_full
@@ -190,9 +180,3 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-
-      - name: Sign the published Docker image
-        if: ${{ github.event_name != 'pull_request' && !github.event.repository.private }}
-        env:
-          COSIGN_EXPERIMENTAL: "true"
-        run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.docker_build_full.outputs.digest }}
