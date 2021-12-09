@@ -12,13 +12,18 @@ using [HaranoAji Fonts](https://github.com/trueroad/HaranoAjiFonts).
 - Automator: [latexmk](https://texwiki.texjp.org/?Latexmk)
 - Available Font: [HaranoAji Fonts](https://github.com/trueroad/HaranoAjiFonts)
 
-## Supported tags
-- `3.2.0`: support only compile with upLaTeX/LuaLaTeX
-- `3.2.0-vscode`: use image with vscode (supporting for vscode-latex-workshop)
-- `3.2.0-full`: support full-package (with Japanese)
+## Supported tags (using `alpine`)
+- `latest`, `4.2.1`, `x.x.x`: support only compile with upLaTeX/LuaLaTeX
+- `4.2.1-vscode`, `x.x.x-vscode`: use image with vscode (supporting for vscode-latex-workshop)
+- `full`: support full-package (with Japanese)
+
+Optional tags:
+- (`bullseye-slim[-vscode,-full]`: using `debian:bullseye-slim`)
 
 ```
-$ docker pull ukitomato/latex
+$ docker pull ukitomato/latex:latest
+or
+$ docker pull ghcr.io/ukitomato/latex:latest
 ```
 
 ## Usage

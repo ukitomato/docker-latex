@@ -51,6 +51,7 @@ FROM alpine:latest as vscode
 RUN apk add --no-cache perl
 
 COPY --from=vscode-builder /usr/local/lib/perl5 /usr/local/lib/perl5
+COPY --from=vscode-builder /usr/local/share/perl5 /usr/local/share/perl5
 COPY --from=vscode-builder /usr/local/texlive /usr/local/texlive
 
 ENV PATH /usr/local/texlive/2021/bin/x86_64-linuxmusl:$PATH
